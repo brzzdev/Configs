@@ -1,0 +1,61 @@
+--allman false
+--beforemarks
+--binarygrouping 4,8
+--categorymark "MARK: %c"
+--classthreshold 0
+--closingparen balanced
+--commas always
+--conflictmarkers reject
+--decimalgrouping 3,6
+--elseposition same-line
+--enumthreshold 0
+--exponentcase lowercase
+--exponentgrouping disabled
+--fractiongrouping disabled
+--fragment false
+--funcattributes prev-line
+--guardelse same-line
+--header ignore
+--hexgrouping 4,8
+--hexliteralcase uppercase
+--ifdef no-indent
+--importgrouping alphabetized
+--indent 4
+--indentcase false
+--lifecycle
+--linebreaks lf
+--maxwidth 120
+--modifierorder
+--nospaceoperators
+--nowrapoperators
+--octalgrouping 4,8
+--operatorfunc spaced
+--patternlet hoist
+--ranges spaced
+--self remove
+--selfrequired
+--semicolons inline
+--shortoptionals always
+--smarttabs enabled
+--stripunusedargs unnamed-only
+--structthreshold 0
+--swiftversion 5.3
+--tabwidth unspecified
+--trailingclosures
+--trimwhitespace always
+--typeattributes prev-line
+--varattributes prev-line
+--voidtype void
+--wraparguments before-first
+--wrapcollections before-first
+--wrapconditions before-first
+--wrapeffects if-multiline
+--wrapenumcases always
+--wrapparameters before-first
+--wrapreturntype if-multiline
+--wraptypealiases before-first
+--xcodeindentation disabled
+--yodaswap always
+--enable wrapSwitchCases
+--disable wrapMultilineStatementBraces
+--exclude .git
