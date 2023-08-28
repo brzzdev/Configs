@@ -5,7 +5,7 @@ only_rules:
     # - accessibility_trait_for_button
     # - legacy_objc_type
     - array_init
-    - blanket_disable_command
+    # - blanket_disable_command
     - block_based_kvo
     - class_delegate_protocol
     - closing_brace
@@ -28,7 +28,7 @@ only_rules:
     - discouraged_assert
     - discouraged_direct_init
     - discouraged_object_literal
-    - discouraged_optional_boolean
+    # - discouraged_optional_boolean
     - discouraged_optional_collection
     - duplicate_conditions
     - duplicate_enum_cases
@@ -116,9 +116,9 @@ only_rules:
     - statement_position
     - static_operator
     - superfluous_disable_command
-    - superfluous_else
+    # - superfluous_else
     - switch_case_alignment
-    - switch_case_on_newline
+    # - switch_case_on_newline
     - syntactic_sugar
     - todo
     - toggle_bool
@@ -141,6 +141,7 @@ only_rules:
     - unused_setter_value
     - vertical_parameter_alignment
     - vertical_whitespace
+    - vertical_whitespace_between_cases
     - vertical_whitespace_opening_braces
     - void_function_in_ternary
     - void_return
@@ -148,11 +149,11 @@ only_rules:
     - yoda_condition
     - custom_rules
 
-deployment_target:
-    iOS_deployment_target: 17.0
-    # macOS_deployment_target:
-    # tvOS_deployment_target:
-    # watchOS_deployment_target:
+# deployment_target:
+#     iOS_deployment_target: 15.0
+#     macOS_deployment_target: 11.0
+#     tvOS_deployment_target:
+#     watchOS_deployment_target:
 
 large_tuple:
     warning: 3
@@ -164,6 +165,7 @@ trailing_comma:
 type_name:
     min_length: 0
     max_length: 1000
+    allowed_symbols: [_]
 
 excluded:
     - Carthage
@@ -173,12 +175,21 @@ excluded:
     - "*.generated.swift"
 
 custom_rules:
+    init_with_class_name:
+        name: "Init With Class Name"
+        message: "Prefer Class() over .init()"
+        included: ".*.swift"
+        regex: '(?<!self|super)\.init\('
+        match_kinds:
+            - identifier
+            - keyword
+        severity: warning
     no_objcMembers:
         name: "@objcMembers"
         regex: "@objcMembers"
         message: "Explicitly use @objc on each member you want to expose to Objective-C"
         severity: error
-    no_direct_standard_out_logs:
+    disable_print:
         included: ".*\\.swift"
         name: "Print usage"
         regex: "(\\bprint|\\bdebugPrint|\\bdump|Swift\\.print|Swift\\.debugPrint|Swift\\.dump)\\s*\\("
