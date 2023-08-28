@@ -1,13 +1,17 @@
---swiftversion 5.9
+--swiftversion 5.8
 # Exclude
 --exclude Carthage,Pods,.build,.git,*.generated.swift
 
 # Rules
 --rules acronyms
+# --lintonly acronyms
 
 --rules andOperator
+--lintonly andOperator
 
 --rules anyObjectProtocol
+
+--rules applicationMain
 
 --rules assertionFailures
 
@@ -18,6 +22,8 @@
 --rules blankLinesAtEndOfScope
 
 --rules blankLinesAtStartOfScope
+
+--rules blankLinesBetweenChainedFunctions
 
 --rules blankLinesBetweenImports
 
@@ -96,6 +102,8 @@
 
 --rules redundantInit
 
+--rules redundantInternal
+
 --rules redundantLet
 
 --rules redundantLetError
@@ -116,6 +124,8 @@
 
 --rules redundantSelf
 
+# --rules redundantStaticSelf
+
 --rules redundantType
 --redundanttype inferred
 
@@ -126,7 +136,11 @@
 
 --rules sortDeclarations
 
---rules sortedImports
+--rules sortImports
+
+--rules sortSwitchCases
+
+--rules sortTypealiases
 
 --rules spaceAroundBraces
 
