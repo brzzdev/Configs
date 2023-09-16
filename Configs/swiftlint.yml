@@ -53,7 +53,7 @@ only_rules:
     - generic_type_name
     - identical_operands
     - implicit_getter
-    - implicit_return
+    # - implicit_return
     - invalid_swiftlint_command
     - is_disjoint
     - joined_default_parameter
@@ -110,7 +110,7 @@ only_rules:
     - return_value_from_void_function
     - self_in_property_initialization
     - shorthand_operator
-    - shorthand_optional_binding
+    # - shorthand_optional_binding 5.9
     - sorted_first_last
     - sorted_imports
     - statement_position

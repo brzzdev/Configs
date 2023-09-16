@@ -1,4 +1,4 @@
---swiftversion 5.8
+--swiftversion 5.9
 # Exclude
 --exclude Carthage,Pods,.build,.git,*.generated.swift
 
@@ -62,7 +62,7 @@
 --rules hoistTry
 
 --rules indent
---indent 4
+--indent tab
 --ifdef no-indent
 --indentstrings true
 
@@ -112,7 +112,7 @@
 
 --rules redundantObjc
 
---rules redundantOptionalBinding
+# Enable on 5.9 --rules redundantOptionalBinding
 
 --rules redundantParens
 
@@ -120,7 +120,7 @@
 
 --rules redundantRawValues
 
---rules redundantReturn
+# --rules redundantReturn
 
 --rules redundantSelf
 
