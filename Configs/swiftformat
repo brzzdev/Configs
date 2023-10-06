@@ -33,7 +33,7 @@
 
 --rules braces
 
-# Enable on 5.9 --rules conditionalAssignment
+--rules conditionalAssignment
 
 --rules consecutiveBlankLines
 
@@ -112,7 +112,7 @@
 
 --rules redundantObjc
 
-# Enable on 5.9 --rules redundantOptionalBinding
+--rules redundantOptionalBinding
 
 --rules redundantParens
 
