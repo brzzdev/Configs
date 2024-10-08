@@ -1,4 +1,4 @@
---swiftversion 5.9
+--swiftversion 6.0
 # Exclude
 --exclude Carthage,Pods,.build,.git,*.generated.swift
 
@@ -74,8 +74,6 @@
 
 --rules linebreaks
 
---rules markTypes
-
 --rules modifierOrder
 
 --rules numberFormatting
@@ -85,7 +83,8 @@
 --someAny disabled
 
 --rules organizeDeclarations
---beforemarks typealias,struct,enum,let,var
+--markcategories false
+--organizationmode type
 --organizetypes class,actor,struct,enum,extension
 
 --rules preferKeyPath
@@ -193,8 +192,9 @@
 --wraptypealiases before-first
 
 --rules wrapAttributes
+--computedvarattrs prev-line
 --funcattributes prev-line
+--storedvarattrs prev-line
 --typeattributes prev-line
---varattributes prev-line
 
 --rules yodaConditions
