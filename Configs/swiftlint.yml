@@ -50,9 +50,11 @@ only_rules:
   # - force_cast
   # - force_try
   # - force_unwrapping
+  - function_name_whitespace
   - generic_type_name
   - identical_operands
   - implicit_getter
+  - implicit_optional_initialization
   # - implicit_return
   - invalid_swiftlint_command
   - is_disjoint
@@ -83,7 +85,6 @@ only_rules:
   - nsobject_prefer_isequal
   - number_separator
   - operator_usage_whitespace
-  - operator_whitespace
   - optional_enum_case_matching
   - orphaned_doc_comment
   - overridden_super_call
@@ -102,7 +103,6 @@ only_rules:
   - redundant_discardable_let
   - redundant_nil_coalescing
   - redundant_objc_attribute
-  - redundant_optional_initialization
   - redundant_self_in_closure
   - redundant_set_access_control
   - redundant_string_enum_value
