@@ -176,7 +176,7 @@ type_name:
 excluded:
   - Carthage
   - Pods
-  - .build
+  - "**/.build"
   - .git
   - "*.generated.swift"
 
