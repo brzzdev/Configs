@@ -171,6 +171,7 @@
 --rules sortDeclarations
 
 --rules sortImports
+--importgrouping alpha
 
 --rules sortSwitchCases
 
