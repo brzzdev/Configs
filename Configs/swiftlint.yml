@@ -164,8 +164,8 @@ modifier_order:
   preferred_modifier_order:
     - isolation
     - override
-    - acl
     - setterACL
+    - acl
     - typeMethods
     - final
     - lazy
