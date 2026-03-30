@@ -124,7 +124,6 @@ only_rules:
   - syntactic_sugar
   - todo
   - toggle_bool
-  - trailing_comma
   - trailing_newline
   - trailing_semicolon
   - trailing_whitespace
@@ -161,8 +160,23 @@ large_tuple:
   warning: 3
   error: 4
 
-trailing_comma:
-  mandatory_comma: true
+modifier_order:
+  preferred_modifier_order:
+    - nonisolated
+    - override
+    - acl
+    - setterACL
+    - static
+    - class
+    - final
+    - lazy
+    - required
+    - convenience
+    - optional
+    - dynamic
+    - weak
+    - unowned
+    - mutating
 
 type_name:
   min_length: 0
