@@ -162,21 +162,18 @@ large_tuple:
 
 modifier_order:
   preferred_modifier_order:
-    - nonisolated
+    - isolation
     - override
     - acl
     - setterACL
-    - static
-    - class
+    - typeMethods
     - final
     - lazy
     - required
     - convenience
-    - optional
     - dynamic
-    - weak
-    - unowned
-    - mutating
+    - owned
+    - mutators
 
 type_name:
   min_length: 0
