@@ -4,7 +4,6 @@ only_rules:
   - block_based_kvo
   - class_delegate_protocol
   - closing_brace
-  - closure_parameter_position
   - closure_spacing
   - collection_alignment
   - colon
@@ -83,7 +82,6 @@ only_rules:
   - nsobject_prefer_isequal
   - number_separator
   - operator_usage_whitespace
-  - optional_data_string_conversion
   - optional_enum_case_matching
   - orphaned_doc_comment
   - overridden_super_call

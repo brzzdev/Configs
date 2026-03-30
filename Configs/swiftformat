@@ -1,10 +1,10 @@
---swiftversion 6.0
+--swiftversion 6.3
+
 # Exclude
 --exclude Carthage,Pods,.build,.git,*.generated.swift
 
 # Rules
 --rules acronyms
-# --lintonly acronyms
 
 --rules andOperator
 --lintonly andOperator
@@ -39,11 +39,15 @@
 
 --rules consecutiveSpaces
 
+--rules consistentSwitchCaseSpacing
+
 --rules duplicateImports
 
 --rules elseOnSameLine
 
 --rules emptyBraces
+
+--rules emptyExtensions
 
 --rules enumNamespaces
 
@@ -75,6 +79,9 @@
 --rules linebreaks
 
 --rules modifierOrder
+--modifierorder nonisolated,override,private,fileprivate,internal,package,public,open,static,class,final,lazy,required,convenience,optional,dynamic,weak,unowned,mutating,nonmutating
+
+--rules modifiersOnSameLine
 
 --rules numberFormatting
 --decimalgrouping 3, 4
@@ -87,13 +94,23 @@
 --organizationmode type
 --organizetypes class,actor,struct,enum,extension
 
+--rules preferCountWhere
+
 --rules preferKeyPath
+
+--rules privateStateVariables
+
+--rules redundantAsync
 
 --rules redundantBackticks
 
 --rules redundantBreak
 
 --rules redundantClosure
+
+--rules redundantEquatable
+
+--rules redundantExtensionACL
 
 --rules redundantFileprivate
 
@@ -107,6 +124,8 @@
 
 --rules redundantLetError
 
+--rules redundantMemberwiseInit
+
 --rules redundantNilInit
 
 --rules redundantObjc
@@ -117,21 +136,37 @@
 
 --rules redundantPattern
 
+--rules redundantPublic
+
 --rules redundantRawValues
 
-# --rules redundantReturn
+--rules redundantReturn
 
 --rules redundantSelf
 
-# --rules redundantStaticSelf
+--rules redundantSendable
+
+--rules redundantStaticSelf
+
+--rules redundantSwiftTestingSuite
+
+--rules redundantThrows
 
 --rules redundantType
 --redundanttype inferred
+
+--rules redundantTypedThrows
+
+--rules redundantVariable
+
+--rules redundantViewBuilder
 
 --rules redundantVoidReturnType
 
 --rules semicolons
 --semicolons never
+
+--rules simplifyGenericConstraints
 
 --rules sortDeclarations
 
@@ -194,7 +229,17 @@
 --rules wrapAttributes
 --computedvarattrs prev-line
 --funcattributes prev-line
---storedvarattrs prev-line
+--storedvarattrs same-line
 --typeattributes prev-line
+
+--rules wrapEnumCases
+
+--rules wrapMultilineConditionalAssignment
+
+--rules wrapMultilineFunctionChains
+
+--rules wrapMultilineStatementBraces
+
+--rules wrapSingleLineComments
 
 --rules yodaConditions
