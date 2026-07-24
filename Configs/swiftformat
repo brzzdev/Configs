@@ -4,7 +4,10 @@
 --exclude Carthage,Pods,.build,.git,*.generated.swift
 
 # Rules
+# Tuist's ProjectDescription API spells these `Id`/`Url`. Renaming them at a call
+# site is a compile error, so `tuist generate` dies after any format run.
 --rules acronyms
+--preserve-acronyms bundleId,projectId,releaseUrl
 
 --rules andOperator
 --lintonly andOperator
