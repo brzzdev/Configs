@@ -197,3 +197,10 @@ custom_rules:
       - identifier
     message: "Don't commit `print(…)`, `debugPrint(…)`, or `dump(…)` as they write to standard out in release. Use a logger`"
     severity: warning
+  no_string_format:
+    name: "String(format:)"
+    regex: "\\bString\\s*\\(\\s*format\\s*:"
+    match_kinds:
+      - identifier
+    message: "`String(format:)` always prints the C locale. Format user-facing numbers, durations and dates with `.formatted(…)` so they follow the user's region, and interpolate into `String(localized:)` rather than filling a format string. Where the output must stay locale-free, like a hex digest, disable this rule on that line with a comment saying why."
+    severity: warning
