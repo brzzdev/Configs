@@ -221,6 +221,8 @@
 
 --rules wrap
 --maxwidth 100
+# Xcode draws a tab 2 columns wide; without this the width count disagrees with it.
+--tabwidth 2
 --wrapternary before-operators
 
 --rules wrapArguments
