@@ -220,6 +220,7 @@
 --rules void
 
 --rules wrap
+# swiftlint.yml's `line_width` regex repeats both numbers: change them together.
 --maxwidth 100
 # Xcode draws a tab 2 columns wide; without this the width count disagrees with it.
 --tabwidth 2

@@ -199,9 +199,10 @@ custom_rules:
     severity: warning
   # swiftformat's --maxwidth, counting a tab as 2 as --tabwidth does. Not
   # `line_length`, which counts a tab as 1 and has no option to change that: one
-  # branch per indent depth, each requiring the rest of the line to exceed what
-  # that depth leaves of 100 columns. Lines holding a string literal are exempt,
-  # since swiftformat cannot break one; it has already wrapped any code around it.
+  # branch per indent depth up to 15 tabs, each requiring the rest of the line to
+  # exceed what that depth leaves of 100 columns. Tabs after the indent count as
+  # 1. Lines holding a string literal are exempt, since swiftformat cannot break
+  # one; it has already wrapped any code around it.
   line_width:
     name: "Line Width"
     regex: '^(?:\t{0}[^\t\n][^\n]{100,}|\t{1}[^\t\n][^\n]{98,}|\t{2}[^\t\n][^\n]{96,}|\t{3}[^\t\n][^\n]{94,}|\t{4}[^\t\n][^\n]{92,}|\t{5}[^\t\n][^\n]{90,}|\t{6}[^\t\n][^\n]{88,}|\t{7}[^\t\n][^\n]{86,}|\t{8}[^\t\n][^\n]{84,}|\t{9}[^\t\n][^\n]{82,}|\t{10}[^\t\n][^\n]{80,}|\t{11}[^\t\n][^\n]{78,}|\t{12}[^\t\n][^\n]{76,}|\t{13}[^\t\n][^\n]{74,}|\t{14}[^\t\n][^\n]{72,}|\t{15}[^\t\n][^\n]{70,})$'
