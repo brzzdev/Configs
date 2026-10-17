@@ -143,8 +143,6 @@
 
 --rules preferSwiftTesting
 
---rules privateSwiftUIDynamicProperties
-
 --rules redundantAsync
 
 --rules redundantBackticks
