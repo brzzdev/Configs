@@ -1,7 +1,9 @@
---swiftversion 6.3
+--min-version 0.64.0
+--swiftversion 6.4
+--unknown-options error
 
 # Exclude
---exclude Carthage,Pods,.build,.git,*.generated.swift
+--exclude Carthage,Pods,.git,*.generated.swift
 
 # Rules
 # Tuist's ProjectDescription API spells these `Id`/`Url`. Renaming them at a call
@@ -36,6 +38,8 @@
 
 --rules braces
 
+--rules commonTypos
+
 --rules conditionalAssignment
 
 --rules consecutiveBlankLines
@@ -43,6 +47,10 @@
 --rules consecutiveSpaces
 
 --rules consistentSwitchCaseSpacing
+
+--rules contentBuilder
+
+--rules docCommentsBeforeModifiers
 
 --rules duplicateImports
 
@@ -54,11 +62,17 @@
 
 --rules enumNamespaces
 
+--rules environmentEntry
+
 --rules extensionAccessControl
 --extensionacl on-declarations
 
+--rules extensionAttributes
+
 --rules fileHeader
 --header strip
+
+--rules forWhere
 
 --rules genericExtensions
 
@@ -75,6 +89,8 @@
 
 --rules initCoderUnavailable
 
+--rules isEmpty
+
 --rules leadingDelimiters
 
 --rules linebreakAtEndOfFile
@@ -85,6 +101,14 @@
 --modifierorder nonisolated,override,private,fileprivate,internal,package,public,open,static,class,final,lazy,required,convenience,optional,dynamic,weak,unowned,mutating,nonmutating
 
 --rules modifiersOnSameLine
+
+--rules nestedIf
+
+--rules noForceTryInTests
+
+--rules noForceUnwrapInTests
+
+--rules noGuardInTests
 
 --rules numberFormatting
 --decimalgrouping 3, 4
@@ -97,11 +121,27 @@
 --organizationmode type
 --organizetypes class,actor,struct,enum,extension
 
+--rules preferContains
+
 --rules preferCountWhere
+
+--rules preferFinalClasses
+
+--rules preferFirstWhere
+
+--rules preferFlatMap
+
+--rules preferForLoop
 
 --rules preferKeyPath
 
---rules privateStateVariables
+--rules preferMinOverSorted
+
+--rules preferStructSwiftTestingSuites
+
+--rules preferSwiftStringAPI
+
+--rules preferSwiftTesting
 
 --rules redundantAsync
 
@@ -111,7 +151,13 @@
 
 --rules redundantClosure
 
+--rules redundantEmptyView
+
+--rules redundantEnumerated
+
 --rules redundantEquatable
+
+--rules redundantExtendedLifetime
 
 --rules redundantExtensionACL
 
@@ -135,6 +181,8 @@
 
 --rules redundantOptionalBinding
 
+--rules redundantOverload
+
 --rules redundantParens
 
 --rules redundantPattern
@@ -153,6 +201,8 @@
 
 --rules redundantSwiftTestingSuite
 
+--rules redundantSwiftUIGroup
+
 --rules redundantThrows
 
 --rules redundantType
@@ -162,14 +212,16 @@
 
 --rules redundantVariable
 
---rules redundantViewBuilder
-
 --rules redundantVoidReturnType
+
+--rules repeatedGuard
 
 --rules semicolons
 --semicolons never
 
 --rules simplifyGenericConstraints
+
+--rules singlePropertyPerLine
 
 --rules sortDeclarations
 
@@ -204,6 +256,10 @@
 
 --rules strongifiedSelf
 
+--rules swiftTestingTestCaseNames
+
+--rules testSuiteAccessControl
+
 --rules todos
 
 --rules trailingClosures
@@ -216,6 +272,8 @@
 
 --rules unusedArguments
 --stripunusedargs closure-only
+
+--rules validateTestCases
 
 --rules void
 
