@@ -3,7 +3,7 @@
 --unknown-options error
 
 # Exclude
---exclude Carthage,Pods,.git,*.generated.swift
+--exclude Carthage,Derived,Pods,.git,*.generated.swift
 
 # Rules
 # Tuist's ProjectDescription API spells these `Id`/`Url`. Renaming them at a call
