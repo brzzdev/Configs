@@ -1,0 +1,5 @@
+[tools]
+"spm:kiliankoe/swift-outdated" = "latest"
+swiftformat = "latest"
+swiftgen = "latest"
+swiftlint = "latest"
