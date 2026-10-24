@@ -1,0 +1,8 @@
+pre-commit:
+  piped: true
+  jobs:
+    - name: oxfmt
+      run: node_modules/.bin/oxfmt --no-error-on-unmatched-pattern {staged_files}
+      stage_fixed: true
+    - name: oxlint
+      run: node_modules/.bin/oxlint --no-error-on-unmatched-pattern {staged_files}
