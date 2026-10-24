@@ -6,6 +6,5 @@
     "lib": ["ES2025"],
     "moduleDetection": "force",
     "verbatimModuleSyntax": true
-  },
-  "exclude": ["tools/oxlint/anti-slop"]
+  }
 }
