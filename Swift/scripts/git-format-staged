@@ -7,7 +7,7 @@
 # ignoring unstaged changes.
 #
 # Usage: git-format-staged [OPTION]... [FILE]...
-# Example: git-format-staged --formatter 'prettier --stdin-filepath "{}"' '*.js'
+# Example: git-format-staged --formatter 'prettier --stdin-filepath {}' '*.js'
 #
 # Tested with Python 3.10 and Python 2.7.
 #
@@ -19,6 +19,7 @@ from fnmatch import fnmatch
 from gettext import gettext as _
 import os
 import re
+import shlex
 import subprocess
 import sys
 
@@ -39,11 +40,12 @@ def fatal(msg):
 def format_staged_files(file_patterns, formatter, git_root, update_working_tree=True, write=True):
     try:
         output = subprocess.check_output([
-            'git', 'diff-index',
+            'git', 'diff',
             '--cached',
+            '--raw',
+            '--no-abbrev',
             '--diff-filter=AM', # select only file additions and modifications
-            '--no-renames',
-            'HEAD'
+            '--no-renames'
             ])
         for line in output.splitlines():
             entry = parse_diff(line.decode('utf-8'))
@@ -86,8 +88,6 @@ def format_file_in_index(formatter, diff_entry, update_working_tree=True, write=
 
     return new_hash
 
-file_path_placeholder = re.compile('\{\}')
-
 # Run formatter on a git blob identified by its hash. Writes output to a new git
 # blob, and returns the hash of the new blob.
 def format_object(formatter, object_hash, file_path):
@@ -96,7 +96,7 @@ def format_object(formatter, object_hash, file_path):
             stdout=subprocess.PIPE
             )
     format_content = subprocess.Popen(
-            re.sub(file_path_placeholder, file_path, formatter),
+            formatter.replace('{}', shlex.quote(file_path)),
             shell=True,
             stdin=get_content.stdout,
             stdout=subprocess.PIPE
@@ -164,9 +164,9 @@ def patch_working_file(path, orig_object_hash, new_object_hash):
         raise Exception('could not apply formatting changes to working tree file {}'.format(path))
 
 # Format: src_mode dst_mode src_hash dst_hash status/score? src_path dst_path?
-diff_pat = re.compile('^:(\d+) (\d+) ([a-f0-9]+) ([a-f0-9]+) ([A-Z])(\d+)?\t([^\t]+)(?:\t([^\t]+))?$')
+diff_pat = re.compile(r'^:(\d+) (\d+) ([a-f0-9]+) ([a-f0-9]+) ([A-Z])(\d+)?\t([^\t]+)(?:\t([^\t]+))?$')
 
-# Parse output from `git diff-index`
+# Parse output from `git diff --raw`
 def parse_diff(diff):
     m = diff_pat.match(diff)
     if not m:
@@ -231,12 +231,12 @@ class CustomArgumentParser(argparse.ArgumentParser):
 if __name__ == '__main__':
     parser = CustomArgumentParser(
             description='Transform staged files using a formatting command that accepts content via stdin and produces a result via stdout.',
-            epilog='Example: %(prog)s --formatter "prettier --stdin-filepath \'{}\'" "src/*.js" "test/*.js"'
+            epilog='Example: %(prog)s --formatter "prettier --stdin-filepath {}" "src/*.js" "test/*.js"'
             )
     parser.add_argument(
             '--formatter', '-f',
             required=True,
-            help='Shell command to format files, will run once per file. Occurrences of the placeholder `{}` will be replaced with a path to the file being formatted. (Example: "prettier --stdin-filepath \'{}\'")'
+            help='Shell command to format files, will run once per file. Occurrences of the placeholder `{}` will be replaced with a path to the file being formatted. The path is shell-quoted, so do not quote the placeholder. (Example: "prettier --stdin-filepath {}")'
             )
     parser.add_argument(
             '--no-update-working-tree',
@@ -246,7 +246,7 @@ if __name__ == '__main__':
     parser.add_argument(
             '--no-write',
             action='store_true',
-            help='Prevents %(prog)s from modifying staged or working tree files. You can use this option to check staged changes with a linter instead of formatting. With this option stdout from the formatter command is ignored. Example: %(prog)s --no-write -f "eslint --stdin --stdin-filename \'{}\' >&2" "*.js"'
+            help='Prevents %(prog)s from modifying staged or working tree files. You can use this option to check staged changes with a linter instead of formatting. With this option stdout from the formatter command is ignored. Example: %(prog)s --no-write -f "eslint --stdin --stdin-filename {} >&2" "*.js"'
             )
     parser.add_argument(
             '--version',

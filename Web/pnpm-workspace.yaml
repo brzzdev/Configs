@@ -1,0 +1,7 @@
+allowBuilds:
+  lefthook: true
+minimumReleaseAge: 1440
+minimumReleaseAgeIgnoreMissingTime: false
+saveExact: true
+trustPolicy: no-downgrade
+verifyDepsBeforeRun: error

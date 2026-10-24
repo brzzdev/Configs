@@ -1,0 +1,16 @@
+default:
+    @just --list
+
+check:
+    pnpm exec oxfmt --check
+    pnpm exec oxlint
+    pnpm exec tsc --noEmit
+    pnpm exec knip
+
+fix:
+    pnpm exec oxlint --fix
+    pnpm exec oxfmt
+
+tools:
+    mise install
+    pnpm install

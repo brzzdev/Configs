@@ -2,4 +2,4 @@ if ! SWIFTFORMAT_PATH=$(command -v swiftformat); then
     echo "Run 'just tools' to install dependencies"
     exit 1
 fi
-./.git-format-staged --formatter "$SWIFTFORMAT_PATH stdin --stdinpath '{}'" "*.swift"
+./.git-format-staged --formatter "$SWIFTFORMAT_PATH stdin --stdinpath {}" "*.swift"
