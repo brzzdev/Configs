@@ -1,5 +1,4 @@
-default:
-    @just --list
+set default-list
 
 check:
     pnpm exec oxfmt --check
