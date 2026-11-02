@@ -1,4 +1,5 @@
 [tools]
+just = "1.59.0"
 "spm:kiliankoe/swift-outdated" = "latest"
 swiftformat = "latest"
 swiftgen = "latest"
