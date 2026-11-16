@@ -3,12 +3,12 @@
   "type": "module",
   "devDependencies": {
     "@oxlint/plugins": "1.93.0",
-    "@tsconfig/strictest": "2.0.8",
-    "knip": "6.45.0",
+    "@tsconfig/strictest": "2.0.9",
+    "knip": "6.45.1",
     "lefthook": "2.2.2",
     "oxfmt": "0.78.0",
     "oxlint": "1.93.0",
-    "oxlint-tsgolint": "7.0.2006",
+    "oxlint-tsgolint": "7.0.2007",
     "typescript": "7.0.2"
   }
 }
