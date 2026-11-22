@@ -22,8 +22,6 @@
 
 --rules blankLineAfterImports
 
---rules blankLinesAroundMark
-
 --rules blankLinesAtEndOfScope
 
 --rules blankLinesAtStartOfScope
