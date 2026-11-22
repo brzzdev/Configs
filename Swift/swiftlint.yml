@@ -211,7 +211,7 @@ custom_rules:
     severity: warning
   no_mark:
     name: "MARK Comment"
-    regex: "(//|/\\*)\\s*MARK\\b"
+    regex: "(//|/\\*)\\s*MARK\\s*[:-]"
     match_kinds:
       - comment
       - doccomment
