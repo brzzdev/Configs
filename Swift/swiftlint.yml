@@ -209,10 +209,10 @@ custom_rules:
       - string
     message: "Line should be 100 columns or less, counting a tab as 2"
     severity: warning
-  # The lookbehinds spare `extension Binding {`, where Binding subscripts live.
+  # A lookahead, so a string literal in the getter can't put the hit in an excluded kind.
   manual_binding:
     name: "Manual Binding"
-    regex: '\bBinding(\s*<[^>]*>)?\s*\(\s*get\s*:|(?<!extension\s)(?<!extension\sSwiftUI\.)\bBinding\s*\{'
+    regex: '(?:\bBinding(?:\s*<[^{}\n]*?>)?|\.init)\s*\(\s*get\s*:|\bBinding(?:\s*<[^{}\n]*?>)?\s*\{(?=(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}\s*set\s*:)'
     excluded_match_kinds:
       - comment
       - doccomment
