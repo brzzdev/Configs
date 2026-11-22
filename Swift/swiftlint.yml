@@ -209,6 +209,16 @@ custom_rules:
       - string
     message: "Line should be 100 columns or less, counting a tab as 2"
     severity: warning
+  # The lookbehinds spare `extension Binding {`, where Binding subscripts live.
+  manual_binding:
+    name: "Manual Binding"
+    regex: '\bBinding(\s*<[^>]*>)?\s*\(\s*get\s*:|(?<!extension\s)(?<!extension\sSwiftUI\.)\bBinding\s*\{'
+    excluded_match_kinds:
+      - comment
+      - doccomment
+      - string
+    message: "Derive the binding from state: `$model.property`, a model property with a setter, or a `Binding` subscript. A `Binding(get:set:)` closure binding drops the transaction, breaking animations, and SwiftUI cannot compare it, so the receiving view re-renders on every update."
+    severity: error
   no_mark:
     name: "MARK Comment"
     regex: "(//|/\\*)\\s*MARK\\s*[:-]"
