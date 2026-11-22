@@ -209,12 +209,13 @@ custom_rules:
       - string
     message: "Line should be 100 columns or less, counting a tab as 2"
     severity: warning
-  # `} set:` sits in a lookahead, so declarations pass and getter strings stay out of the match.
+  # `} set:` is required but only looked ahead to, keeping getter strings out of the match.
   manual_binding:
     name: "Manual Binding"
-    regex: '\bBinding(?:\s*(?><(?:->|[^<>{}]|<(?:->|[^<>{}]|<(?:->|[^<>{}])*+>)*+>)*+>))?(?:\s*\.init)?\s*(?:\(\s*get\s*:|\{(?=(?:[^{}]|\{(?:[^{}]|\{[^{}]*+\})*+\})*+\}\s*set\s*:))'
+    regex: '\bBinding(?:\s*<(?:->|[^<>{}]|<(?:->|[^<>{}]|<(?:->|[^<>{}])*+>)*+>)*+>)?(?:\s*\.init)?\s*(?:\(\s*get\s*:|\{(?=(?:[^{}]|\{(?:[^{}]|\{[^{}]*+\})*+\})*+\}\s*set\s*:))'
     excluded_match_kinds:
       - comment
+      - comment.url
       - doccomment
       - string
     message: "Derive the binding from state: `$model.property`, a model property with a setter, or a `Binding` subscript. A `Binding(get:set:)` closure binding drops the transaction, breaking animations, and SwiftUI cannot compare it, so the receiving view re-renders on every update."
