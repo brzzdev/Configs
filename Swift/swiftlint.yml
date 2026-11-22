@@ -209,10 +209,11 @@ custom_rules:
       - string
     message: "Line should be 100 columns or less, counting a tab as 2"
     severity: warning
-  # A lookahead, so a string literal in the getter can't put the hit in an excluded kind.
+  # A trailing closure must reach `} set:`, found by a lookahead that skips string literals, so
+  # declarations such as `-> Binding {` pass, and a string in the getter can't excuse the hit.
   manual_binding:
     name: "Manual Binding"
-    regex: '(?:\bBinding(?:\s*<[^{}\n]*?>)?|\.init)\s*\(\s*get\s*:|\bBinding(?:\s*<[^{}\n]*?>)?\s*\{(?=(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}\s*set\s*:)'
+    regex: '\bBinding(?:\s*<(?:->|[^<>{}]|<(?:->|[^<>{}]|<(?:->|[^<>{}])*>)*>)*>)?(?:\s*\.init)?\s*(?:\(\s*get\s*:|\{(?=(?:(?:"""[\s\S]*?"""|"(?:[^"\\\n]|\\.)*"|[^{}"])|\{(?:(?:"""[\s\S]*?"""|"(?:[^"\\\n]|\\.)*"|[^{}"])|\{(?:"""[\s\S]*?"""|"(?:[^"\\\n]|\\.)*"|[^{}"])*\})*\})*\}\s*set\s*:))'
     excluded_match_kinds:
       - comment
       - doccomment
