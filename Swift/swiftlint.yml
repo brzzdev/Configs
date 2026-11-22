@@ -212,7 +212,7 @@ custom_rules:
   # `} set:` is required but only looked ahead to, keeping getter strings out of the match.
   manual_binding:
     name: "Manual Binding"
-    regex: '\bBinding(?:\s*<(?:->|[^<>{}]|<(?:->|[^<>{}]|<(?:->|[^<>{}])*+>)*+>)*+>)?(?:\s*\.init)?\s*(?:\(\s*get\s*:|\{(?=(?:[^{}]|\{(?:[^{}]|\{[^{}]*+\})*+\})*+\}\s*set\s*:))'
+    regex: '\bBinding(?:\s*<(?:->|[^<>{}]|<(?:->|[^<>{}]|<(?:->|[^<>{}])*+>)*+>)*+>)?(?:\s*\.init)?\s*(?:\(\s*get\s*:|\{(?=(?:[^{}]|\{(?:[^{}]|\{[^{}]*+\})*+\})*+\}\s*set\s*:\s*\{))'
     excluded_match_kinds:
       - comment
       - comment.url
